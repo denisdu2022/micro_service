@@ -1,0 +1,37 @@
+//指定版本(默认是2版本)
+syntax = "proto3";
+
+//指定属性
+option go_package = "./";
+
+//指定包名
+package pb;
+
+//定义枚举类型
+enum Week {
+  Monday = 0; //枚举值必须从0开始
+  Tuesday = 1;
+
+}
+
+//定义消息体
+message Student {
+  int32 age = 1; //起始位置可以不从1开始,但是不能重复
+  string name = 2;
+  People p = 3;
+  //数组 使用repeated关键字
+  repeated int32 score = 4;
+  //枚举
+  Week w = 5;
+  //联合体
+  oneof data {
+    string teacher = 6;
+    string class = 7;
+  }
+
+}
+
+//消息体可以嵌套
+message People {
+  int32 weight = 1;
+}
