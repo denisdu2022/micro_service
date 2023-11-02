@@ -1,0 +1,10 @@
+//默认是2版本的,需要指定为3版本
+syntax = "proto3";
+
+//属性
+option go_package = ".;proto";
+
+message HelloRequest {
+  string name = 1; //这里的1是编号,不是值
+
+}
