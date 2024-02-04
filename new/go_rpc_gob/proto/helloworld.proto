@@ -1,0 +1,18 @@
+//默认是2版本的,需要指定为3版本
+syntax = "proto3";
+
+service Hello{
+    rpc Hello(HelloRequest) returns (Response); //hello接口
+}
+
+//属性
+option go_package = ".;helloworld";
+
+message HelloRequest {
+    string name = 1; //1是编号不是值
+    int32 age = 2;
+    repeated string courses = 3;
+}
+message Response {
+    string reply = 1;
+}
