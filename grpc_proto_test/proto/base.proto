@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+//公用的message
+
+//空的message
+message Empty1{
+
+}
+
+message Pong{
+    string id = 1;
+}
