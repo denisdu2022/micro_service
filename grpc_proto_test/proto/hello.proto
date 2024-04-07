@@ -1,13 +1,10 @@
 syntax = "proto3";
 //引入message
 //自定义引入
-//import "base.proto";
-
+import "base.proto";
 //使用官方提供的
 import "google/protobuf/empty.proto";
-option go_package = ".;proto";
-
-
+option go_package = "proto";
 
 service Greeter {
     rpc SayHello(HelloRequest) returns (HelloReply);
@@ -21,7 +18,18 @@ message HelloRequest {
 
 }
 
+//message的嵌套
+
 message HelloReply {
     string message = 1;
+
+    message Result {
+        string name = 1;
+        string url = 2;
+    }
+
+    repeated Result data =2;
  }
+
+
 
