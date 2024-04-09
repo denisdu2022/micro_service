@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+//导入时间戳类型
+import "google/protobuf/timestamp.proto";
+
+option go_package = ".;proto";
+
+service Greeter {
+    rpc SayHello(HelloRequest) returns (HelloReply);
+}
+
+message HelloRequest {
+    //这里的1是编号,不是值
+    string url = 1; //url
+    string name = 2; //name
+    Gender g = 3;
+    //map类型
+    map<string,string> mp = 4;
+    //时间戳类型
+    google.protobuf.Timestamp addTime= 5;
+}
+
+//枚举类型
+enum Gender{
+    MALE=0;
+    FMALE=1;
+}
+
+
+message HelloReply {
+    string message = 1;
+ }
