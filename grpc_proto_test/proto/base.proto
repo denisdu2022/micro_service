@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+option go_package = "/proto";
 //公用的message
 
 //空的message

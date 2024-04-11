@@ -4,7 +4,7 @@ syntax = "proto3";
 import "base.proto";
 //使用官方提供的
 import "google/protobuf/empty.proto";
-option go_package = "proto";
+option go_package = "/proto";
 
 service Greeter {
     rpc SayHello(HelloRequest) returns (HelloReply);
