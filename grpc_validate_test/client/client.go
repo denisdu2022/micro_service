@@ -24,6 +24,7 @@ func main() {
 	c := proto.NewGreeterClient(conn)
 	//调用
 	rsp, err := c.SayHello(context.Background(), &proto.Person{
+		Id:    1000,
 		Email: "test",
 	})
 	if err != nil {
