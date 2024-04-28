@@ -22,7 +22,7 @@ const (
 	Greeter_SayHello_FullMethodName = "/Greeter/SayHello"
 )
 
-// GreeterClient is the client API for Greeter service.
+// GreeterClient is the client api for Greeter service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GreeterClient interface {
@@ -46,7 +46,7 @@ func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...
 	return out, nil
 }
 
-// GreeterServer is the server API for Greeter service.
+// GreeterServer is the server api for Greeter service.
 // All implementations must embed UnimplementedGreeterServer
 // for forward compatibility
 type GreeterServer interface {

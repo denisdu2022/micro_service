@@ -26,7 +26,7 @@ const (
 	Bj38_Say_FullMethodName = "/pb.bj38/Say"
 )
 
-// Bj38Client is the client API for Bj38 service.
+// Bj38Client is the client api for Bj38 service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type Bj38Client interface {
@@ -50,7 +50,7 @@ func (c *bj38Client) Say(ctx context.Context, in *People, opts ...grpc.CallOptio
 	return out, nil
 }
 
-// Bj38Server is the server API for Bj38 service.
+// Bj38Server is the server api for Bj38 service.
 // All implementations must embed UnimplementedBj38Server
 // for forward compatibility
 type Bj38Server interface {
