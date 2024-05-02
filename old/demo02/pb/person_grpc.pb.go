@@ -24,7 +24,7 @@ const (
 	SayName_SayHello_FullMethodName = "/pb.SayName/SayHello"
 )
 
-// SayNameClient is the client API for SayName service.
+// SayNameClient is the client api for SayName service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type SayNameClient interface {
@@ -48,7 +48,7 @@ func (c *sayNameClient) SayHello(ctx context.Context, in *Teacher, opts ...grpc.
 	return out, nil
 }
 
-// SayNameServer is the server API for SayName service.
+// SayNameServer is the server api for SayName service.
 // All implementations must embed UnimplementedSayNameServer
 // for forward compatibility
 type SayNameServer interface {

@@ -24,7 +24,7 @@ const (
 	Hello_Hello_FullMethodName = "/Hello/Hello"
 )
 
-// HelloClient is the client API for Hello service.
+// HelloClient is the client api for Hello service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type HelloClient interface {
@@ -48,7 +48,7 @@ func (c *helloClient) Hello(ctx context.Context, in *HelloRequest, opts ...grpc.
 	return out, nil
 }
 
-// HelloServer is the server API for Hello service.
+// HelloServer is the server api for Hello service.
 // All implementations must embed UnimplementedHelloServer
 // for forward compatibility
 type HelloServer interface {
