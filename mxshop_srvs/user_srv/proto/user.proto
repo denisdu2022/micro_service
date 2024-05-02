@@ -1,0 +1,99 @@
+syntax = "proto3";  //proto版本
+import "google/protobuf/empty.proto";
+
+option go_package = ".;proto";  //生成的go文件的包名
+
+//定义User方法
+service User{
+    //获取用户列表
+    rpc GetUserList(PageInfo) returns(UserListResponse);
+    //通过手机号查询用户
+    rpc GetUserByMobile(MobileRequest) returns (UserInfoResponse);
+    //通过ID查询用户
+    rpc GetUserById(IdRequest)returns (UserInfoResponse);
+    //注册用户
+    rpc CreteUser(CreateUserInfo) returns (UserInfoResponse);
+    //更新用户
+    rpc UpdateUser(UpdateUserInfo)returns (google.protobuf.Empty);
+    //检查用户密码(通用的)
+    rpc CheckPassWord(PasswordCheckInfo) returns (CheckReponse);
+}
+
+//分页信息
+message PageInfo{
+    //分页数量
+    uint32 pn = 1;
+    //分页大小
+    uint32 pSize = 2;
+}
+
+//手机号请求信息
+message MobileRequest {
+    string mobile =1;
+
+}
+//ID请求信息
+message IdRequest{
+    int32 id =1;
+}
+
+//创建用户信息
+message CreateUserInfo{
+    //通用的来做,必须传昵称,后期业务变化这里不需要改动
+    string nickName = 1;
+    //密码
+    string passWord = 2;
+    //手机号
+    string mobile = 3;
+}
+
+//更新用户信息
+message UpdateUserInfo{
+    //更新用户,需要先知道那个用户,所以需要先传用户ID
+    int32 id = 1;
+    //更新昵称
+    string nickName = 2;
+    //更新性别
+    string gender =3;
+    //更新生日
+    uint64 birthDay =4;
+}
+
+//密码检查信息
+message PasswordCheckInfo{
+    string password = 1;
+    string encryptedPassword = 2;
+}
+
+//检查密码返回信息
+message CheckReponse{
+    bool success = 1;
+}
+
+
+//用户信息
+message UserInfoResponse{
+    //用户ID
+    int32 id =  1;
+    //用户密码
+    string passWord =   2;
+    //手机号
+    string mobile = 3;
+    //昵称
+    string nickName = 4;
+    //生日
+    uint64 birthDay = 5;
+    //性别
+    string gender = 6;
+    //权限
+    int32 role = 7;
+
+}
+
+//用户列表信息
+message UserListResponse{
+    //全部的大小
+    int32 total = 1;
+    //使用内嵌message
+    repeated UserInfoResponse data = 2;
+}
