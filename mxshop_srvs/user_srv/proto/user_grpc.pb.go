@@ -43,7 +43,7 @@ type UserClient interface {
 	// 更新用户
 	UpdateUser(ctx context.Context, in *UpdateUserInfo, opts ...grpc.CallOption) (*empty.Empty, error)
 	// 检查用户密码(通用的)
-	CheckPassWord(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckReponse, error)
+	CheckPassWord(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckResponse, error)
 }
 
 type userClient struct {
@@ -99,8 +99,8 @@ func (c *userClient) UpdateUser(ctx context.Context, in *UpdateUserInfo, opts ..
 	return out, nil
 }
 
-func (c *userClient) CheckPassWord(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckReponse, error) {
-	out := new(CheckReponse)
+func (c *userClient) CheckPassWord(ctx context.Context, in *PasswordCheckInfo, opts ...grpc.CallOption) (*CheckResponse, error) {
+	out := new(CheckResponse)
 	err := c.cc.Invoke(ctx, User_CheckPassWord_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -123,7 +123,7 @@ type UserServer interface {
 	// 更新用户
 	UpdateUser(context.Context, *UpdateUserInfo) (*empty.Empty, error)
 	// 检查用户密码(通用的)
-	CheckPassWord(context.Context, *PasswordCheckInfo) (*CheckReponse, error)
+	CheckPassWord(context.Context, *PasswordCheckInfo) (*CheckResponse, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -146,7 +146,7 @@ func (UnimplementedUserServer) CreteUser(context.Context, *CreateUserInfo) (*Use
 func (UnimplementedUserServer) UpdateUser(context.Context, *UpdateUserInfo) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUser not implemented")
 }
-func (UnimplementedUserServer) CheckPassWord(context.Context, *PasswordCheckInfo) (*CheckReponse, error) {
+func (UnimplementedUserServer) CheckPassWord(context.Context, *PasswordCheckInfo) (*CheckResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckPassWord not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}

@@ -20,7 +20,7 @@ var (
 func init() {
 	//数据库初始化
 	//数据库连接信息
-	dsn := "root:password@tcp(hostip)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "username:passwd@tcp(hostip)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
 
 	//创建日志对象
 	newLogger := logger.New(
