@@ -67,7 +67,7 @@ func main() {
 	//fmt.Println(check) // true
 
 	// Using custom options
-	rawPwd := "AdM^Rt!e$s5j"
+	rawPwd := "admin123"
 	options := &password.Options{16, 100, 32, sha512.New}
 	salt, encodedPwd := password.Encode(rawPwd, options)
 	//数据库中存储加密算法,盐值和encodedPwd
