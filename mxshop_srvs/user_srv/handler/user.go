@@ -30,6 +30,7 @@ func ModelToResponse(user model.User) proto.UserInfoResponse {
 		PassWord: user.PassWord,
 		NickName: user.NickName,
 		Gender:   user.Gender,
+		Mobile:   user.Mobile,
 		Role:     int32(user.Role),
 	}
 
